@@ -15,8 +15,6 @@ import {
   Mail,
   MapPin,
   Menu,
-  Mic,
-  Newspaper,
   Phone,
   Search,
   ShieldCheck,
@@ -29,17 +27,17 @@ import {
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Campus Demo Fortaleza | Portal Institucional" },
+      { title: "Campus Fortaleza | Portal Institucional" },
       {
         name: "description",
         content:
-          "Portal institucional fictício para testes de acessibilidade com Libras, voz, texto e navegação assistida.",
+          "Portal institucional com recursos de acessibilidade, Libras, voz, texto e navegação assistida.",
       },
-      { property: "og:title", content: "Campus Demo Fortaleza" },
+      { property: "og:title", content: "Campus Fortaleza" },
       {
         property: "og:description",
         content:
-          "Portal demonstrativo de campus educacional para laboratório de acessibilidade digital.",
+          "Portal institucional de campus educacional com recursos de acessibilidade digital.",
       },
     ],
   }),
@@ -80,16 +78,15 @@ const quickLinks = [
     description: "Apoio, auxílios e acompanhamento ao estudante.",
     icon: Users,
   },
-  { title: "Contatos", description: "Canais de atendimento dos setores do campus.", icon: Phone },
-  {
-    title: "Horários de Atendimento",
-    description: "Funcionamento administrativo e acadêmico.",
-    icon: Clock,
-  },
   {
     title: "Portal do Estudante",
     description: "Acesso a solicitações e vida acadêmica.",
     icon: BookOpen,
+  },
+  {
+    title: "Ouvidoria",
+    description: "Canal de escuta e encaminhamento institucional.",
+    icon: Headphones,
   },
 ];
 
@@ -133,7 +130,7 @@ const tabs = ["Todos", "Técnicos", "Graduação", "Licenciaturas", "Pós-gradua
 
 const news = [
   {
-    title: "Campus Demo realiza semana de tecnologia e inclusão",
+    title: "Campus Fortaleza realiza semana de tecnologia e inclusão",
     date: "12 mar 2026",
     category: "Eventos",
     summary: "Programação reúne oficinas, palestras e demonstrações de tecnologias assistivas.",
@@ -240,7 +237,7 @@ function TopBar() {
   return (
     <div className="border-b border-border bg-primary text-primary-foreground">
       <div className="mx-auto flex max-w-7xl flex-col gap-3 px-4 py-2 text-sm sm:flex-row sm:items-center sm:justify-between lg:px-8">
-        <span className="font-semibold">Portal Institucional Demo</span>
+        <span className="font-semibold">Portal Institucional</span>
         <div className="flex flex-wrap items-center gap-3">
           {["Acessibilidade", "Alto Contraste", "Mapa do Site", "Contato"].map((item) => (
             <a key={item} href="#contatos" className="hover:underline">
@@ -276,11 +273,9 @@ function SiteHeader({
             <Building2 className="h-7 w-7" aria-hidden="true" />
           </span>
           <span>
-            <strong className="block text-xl leading-tight text-primary">
-              Campus Demo Fortaleza
-            </strong>
+            <strong className="block text-xl leading-tight text-primary">Campus Fortaleza</strong>
             <span className="block text-xs text-muted-foreground sm:text-sm">
-              Instituto Federal Demo de Educação, Ciência e Tecnologia
+              Instituto Federal de Educação, Ciência e Tecnologia
             </span>
           </span>
         </a>
@@ -333,18 +328,18 @@ function Hero() {
     <section id="inicio" className="border-b border-border bg-secondary">
       <div className="mx-auto grid max-w-7xl gap-8 px-4 py-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:px-8 lg:py-14">
         <div>
-          <p className="mb-3 inline-flex items-center gap-2 rounded-md bg-card px-3 py-1 text-sm font-semibold text-primary shadow-sm">
-            <ShieldCheck className="h-4 w-4" /> Portal demonstrativo institucional
+          <p className="mb-3 inline-flex items-center gap-2 rounded-md bg-card px-3 py-1 text-sm font-semibold text-primary shadow-sm ring-1 ring-border">
+            <ShieldCheck className="h-4 w-4" /> Portal institucional
           </p>
           <h1 className="max-w-3xl text-4xl font-bold leading-tight text-primary sm:text-5xl">
-            Campus Demo Fortaleza
+            Campus Fortaleza
           </h1>
           <p className="mt-5 max-w-2xl text-xl font-medium text-foreground">
             Ensino público, gratuito e de qualidade em um ambiente de inovação, inclusão e formação
             cidadã.
           </p>
           <p className="mt-4 max-w-2xl leading-7 text-muted-foreground">
-            O Campus Demo Fortaleza reúne cursos técnicos, graduações, pós-graduações, projetos de
+            O Campus Fortaleza reúne cursos técnicos, graduações, pós-graduações, projetos de
             pesquisa, extensão e serviços voltados à comunidade acadêmica.
           </p>
           <div className="mt-7 flex flex-wrap gap-3">
@@ -360,16 +355,25 @@ function Hero() {
         <div className="overflow-hidden rounded-lg border border-border bg-card shadow-lg">
           <div className="aspect-[4/3] bg-[linear-gradient(135deg,var(--primary),var(--accent))] p-6 text-primary-foreground">
             <div className="flex h-full flex-col justify-between rounded-md border border-primary-foreground/25 bg-primary-foreground/10 p-6 backdrop-blur-sm">
-              <div className="grid grid-cols-3 gap-3">
-                <div className="h-20 rounded-md bg-primary-foreground/25" />
-                <div className="h-20 rounded-md bg-primary-foreground/15" />
-                <div className="h-20 rounded-md bg-primary-foreground/25" />
+              <div className="grid grid-cols-[1.3fr_0.8fr] gap-4">
+                <div className="rounded-md bg-primary-foreground/20 p-4">
+                  <div className="h-3 w-24 rounded-full bg-primary-foreground/55" />
+                  <div className="mt-8 grid grid-cols-4 gap-2">
+                    {Array.from({ length: 12 }).map((_, index) => (
+                      <span key={index} className="h-8 rounded-sm bg-primary-foreground/30" />
+                    ))}
+                  </div>
+                </div>
+                <div className="rounded-md bg-primary-foreground/15 p-4">
+                  <div className="h-24 rounded-md bg-primary-foreground/25" />
+                  <div className="mt-3 h-3 w-16 rounded-full bg-primary-foreground/45" />
+                </div>
               </div>
               <div>
                 <Building2 className="mb-4 h-14 w-14" />
-                <p className="text-2xl font-bold">Ambiente educacional demo</p>
+                <p className="text-2xl font-bold">Ambiente educacional integrado</p>
                 <p className="mt-2 max-w-md text-sm opacity-90">
-                  Ilustração genérica de campus, laboratórios e convivência acadêmica.
+                  Representação visual genérica de campus, laboratórios e convivência acadêmica.
                 </p>
               </div>
             </div>
@@ -387,7 +391,7 @@ function QuickAccess() {
         {quickLinks.map((item) => (
           <article
             key={item.title}
-            className="group rounded-lg border border-border bg-card p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-md"
+            className="group rounded-lg border border-border bg-card p-5 shadow-sm ring-1 ring-transparent transition hover:-translate-y-1 hover:border-primary/60 hover:shadow-md hover:ring-primary/10"
           >
             <item.icon className="h-8 w-8 text-primary" aria-hidden="true" />
             <h3 className="mt-4 text-lg font-bold">{item.title}</h3>
@@ -421,7 +425,7 @@ function Courses({
       id="ensino"
       eyebrow="Ensino"
       title="Conheça nossos cursos"
-      description="O Campus Demo Fortaleza oferece formações gratuitas em diferentes níveis de ensino, incluindo cursos técnicos, graduação, licenciatura, tecnologia, pós-graduação e formação continuada."
+      description="O Campus Fortaleza oferece formações gratuitas em diferentes níveis de ensino, incluindo cursos técnicos, graduação, licenciatura, tecnologia, pós-graduação e formação continuada."
       muted
     >
       <div className="mb-6 flex flex-wrap gap-2" role="tablist" aria-label="Filtros de cursos">
@@ -444,7 +448,7 @@ function Courses({
         {filteredCourses.map((course) => (
           <article
             key={course.name}
-            className="rounded-lg border border-border bg-card p-5 shadow-sm transition hover:shadow-md"
+            className="rounded-lg border border-border bg-card p-5 shadow-sm ring-1 ring-transparent transition hover:border-primary/60 hover:shadow-md hover:ring-primary/10"
           >
             <span className="rounded-md bg-secondary px-2.5 py-1 text-xs font-bold text-primary">
               {course.level}
@@ -477,7 +481,7 @@ function NewsSection() {
         {news.map((item) => (
           <article
             key={item.title}
-            className="rounded-lg border border-border bg-card p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-md"
+            className="rounded-lg border border-border bg-card p-5 shadow-sm ring-1 ring-transparent transition hover:-translate-y-1 hover:border-primary/60 hover:shadow-md hover:ring-primary/10"
           >
             <span className="text-xs font-bold uppercase tracking-wide text-accent">
               {item.category}
@@ -579,7 +583,7 @@ function ResearchExtensionInnovation() {
         {items.map((item) => (
           <article
             key={item.title}
-            className="rounded-lg border border-border bg-card p-6 shadow-sm"
+            className="rounded-lg border border-border bg-card p-6 shadow-sm ring-1 ring-transparent transition hover:border-primary/60 hover:shadow-md hover:ring-primary/10"
           >
             <item.icon className="h-9 w-9 text-primary" />
             <h3 className="mt-4 text-xl font-bold">{item.title}</h3>
@@ -602,9 +606,9 @@ function AccessibilityLab() {
   return (
     <Section
       id="acessibilidade"
-      eyebrow="NeoTalk Demo"
+      eyebrow="NeoTalk"
       title="Laboratório de Acessibilidade Digital"
-      description="Este portal demonstrativo é utilizado como ambiente de testes para soluções de acessibilidade digital, incluindo tradução em Libras por avatar 3D, leitura em voz alta, atendimento inclusivo e navegação assistida."
+      description="Este portal institucional é utilizado como ambiente de validação para soluções de acessibilidade digital, incluindo tradução em Libras por avatar 3D, leitura em voz alta, atendimento inclusivo e navegação assistida."
     >
       <div className="grid gap-6 rounded-lg border border-border bg-card p-5 shadow-sm lg:grid-cols-[0.9fr_1.1fr] lg:p-7">
         <div className="flex min-h-72 items-center justify-center rounded-lg bg-secondary p-6 text-center">
@@ -614,7 +618,7 @@ function AccessibilityLab() {
             </div>
             <p className="mt-5 text-2xl font-bold text-primary">Avatar Libras</p>
             <p className="mt-2 text-sm text-muted-foreground">
-              Área reservada para avatar 3D demonstrativo
+              Área reservada para avatar 3D de Libras
             </p>
           </div>
         </div>
@@ -643,8 +647,8 @@ function Contacts() {
   return (
     <Section id="contatos" eyebrow="Atendimento" title="Contatos do Campus" muted>
       <div className="grid gap-6 lg:grid-cols-[0.85fr_1.15fr]">
-        <div className="rounded-lg border border-border bg-card p-6 shadow-sm">
-          <h3 className="text-xl font-bold">Campus Demo Fortaleza</h3>
+        <div className="rounded-lg border border-border bg-card p-6 shadow-sm ring-1 ring-transparent transition hover:border-primary/60 hover:shadow-md hover:ring-primary/10">
+          <h3 className="text-xl font-bold">Campus Fortaleza</h3>
           <div className="mt-5 space-y-4 text-muted-foreground">
             <p className="flex gap-3">
               <MapPin className="mt-0.5 h-5 w-5 text-primary" /> Avenida Exemplo, 2081 - Benfica -
@@ -655,7 +659,8 @@ function Contacts() {
               <Phone className="mt-0.5 h-5 w-5 text-primary" /> (85) 3000-0000
             </p>
             <p className="flex gap-3">
-              <Mail className="mt-0.5 h-5 w-5 text-primary" /> contato@campusdemo.edu.br
+              <Mail className="mt-0.5 h-5 w-5 text-primary" />
+              <span>contato (arroba) campusfortaleza.edu.br</span>
             </p>
           </div>
         </div>
@@ -664,7 +669,8 @@ function Contacts() {
             <div key={sector} className="rounded-lg border border-border bg-card p-4 shadow-sm">
               <h4 className="font-bold">{sector}</h4>
               <p className="mt-1 text-sm text-muted-foreground">
-                {emailFor(sector)}@campusdemo.edu.br
+                <span>{emailFor(sector)}</span> <span>(arroba)</span>{" "}
+                <span>campusfortaleza.edu.br</span>
               </p>
             </div>
           ))}
@@ -687,7 +693,7 @@ function Footer() {
     <footer className="bg-primary text-primary-foreground">
       <div className="mx-auto grid max-w-7xl gap-8 px-4 py-10 sm:grid-cols-2 lg:grid-cols-4 lg:px-8">
         <div>
-          <h2 className="text-xl font-bold">Campus Demo Fortaleza</h2>
+          <h2 className="text-xl font-bold">Campus Fortaleza</h2>
           <p className="mt-3 text-sm leading-6 opacity-85">
             Avenida Exemplo, 2081 - Benfica - Fortaleza/CE
             <br />
@@ -710,7 +716,7 @@ function Footer() {
         ))}
       </div>
       <div className="border-t border-primary-foreground/20 px-4 py-4 text-center text-sm opacity-90">
-        © 2026 Campus Demo Fortaleza. Portal demonstrativo sem vínculo institucional oficial.
+        © 2026 Campus Fortaleza. Portal institucional de referência para acessibilidade digital.
       </div>
     </footer>
   );
