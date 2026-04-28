@@ -9,11 +9,13 @@ FROM node:22-alpine AS build
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
-RUN npm run build
+RUN npm run build \
+  && test -f /app/dist/client/index.html
 
 FROM nginx:1.27-alpine AS runtime
 COPY ./.docker/nginx/default.conf /etc/nginx/conf.d/default.conf
-COPY --from=build /app/dist/client /usr/share/nginx/html
+RUN rm -rf /usr/share/nginx/html/*
+COPY --from=build /app/dist/client/ /usr/share/nginx/html/
 
 EXPOSE 80
 HEALTHCHECK --interval=30s --timeout=3s --start-period=10s --retries=3 \
