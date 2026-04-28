@@ -229,7 +229,24 @@ function CampusPortalPage() {
         largeText={largeText}
         setLargeText={setLargeText}
       />
+      <ExternalNeoTalkWidget />
     </main>
+  );
+}
+
+function ExternalNeoTalkWidget() {
+  return (
+    <div className="fixed bottom-4 right-4 z-50 h-[720px] w-full max-w-[420px] px-4 sm:px-0">
+      <iframe
+        src="https://infra-neotalkif.k3p3ex.easypanel.host/widget"
+        title="Assistente virtual IFCE"
+        referrerPolicy="no-referrer"
+        sandbox="allow-scripts allow-same-origin"
+        allow="autoplay"
+        loading="lazy"
+        className="h-full w-full rounded-xl border-0 shadow-2xl"
+      />
+    </div>
   );
 }
 
