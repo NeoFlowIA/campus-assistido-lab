@@ -38,7 +38,8 @@ export const Route = createFileRoute("/")({
       { property: "og:title", content: "Campus Demo Fortaleza" },
       {
         property: "og:description",
-        content: "Portal demonstrativo de campus educacional para laboratório de acessibilidade digital.",
+        content:
+          "Portal demonstrativo de campus educacional para laboratório de acessibilidade digital.",
       },
     ],
   }),
@@ -58,25 +59,74 @@ const navItems = [
 ];
 
 const quickLinks = [
-  { title: "Cursos", description: "Formações técnicas, superiores e continuadas.", icon: GraduationCap },
-  { title: "Calendário Acadêmico", description: "Datas letivas, matrículas e eventos acadêmicos.", icon: CalendarDays },
+  {
+    title: "Cursos",
+    description: "Formações técnicas, superiores e continuadas.",
+    icon: GraduationCap,
+  },
+  {
+    title: "Calendário Acadêmico",
+    description: "Datas letivas, matrículas e eventos acadêmicos.",
+    icon: CalendarDays,
+  },
   { title: "Editais", description: "Chamadas públicas, seleções e comunicados.", icon: FileText },
-  { title: "Biblioteca", description: "Acervo, empréstimos e serviços de pesquisa.", icon: Library },
-  { title: "Assistência Estudantil", description: "Apoio, auxílios e acompanhamento ao estudante.", icon: Users },
+  {
+    title: "Biblioteca",
+    description: "Acervo, empréstimos e serviços de pesquisa.",
+    icon: Library,
+  },
+  {
+    title: "Assistência Estudantil",
+    description: "Apoio, auxílios e acompanhamento ao estudante.",
+    icon: Users,
+  },
   { title: "Contatos", description: "Canais de atendimento dos setores do campus.", icon: Phone },
-  { title: "Horários de Atendimento", description: "Funcionamento administrativo e acadêmico.", icon: Clock },
-  { title: "Portal do Estudante", description: "Acesso a solicitações e vida acadêmica.", icon: BookOpen },
+  {
+    title: "Horários de Atendimento",
+    description: "Funcionamento administrativo e acadêmico.",
+    icon: Clock,
+  },
+  {
+    title: "Portal do Estudante",
+    description: "Acesso a solicitações e vida acadêmica.",
+    icon: BookOpen,
+  },
 ];
 
 const courses = [
   { name: "Técnico em Informática", level: "Técnicos", modality: "Integrado", shift: "Manhã" },
   { name: "Técnico em Edificações", level: "Técnicos", modality: "Subsequente", shift: "Noite" },
   { name: "Técnico em Eletrotécnica", level: "Técnicos", modality: "Integrado", shift: "Tarde" },
-  { name: "Licenciatura em Matemática", level: "Licenciaturas", modality: "Presencial", shift: "Noite" },
-  { name: "Licenciatura em Física", level: "Licenciaturas", modality: "Presencial", shift: "Tarde" },
-  { name: "Engenharia de Computação", level: "Graduação", modality: "Bacharelado", shift: "Integral" },
-  { name: "Tecnologia em Gestão Ambiental", level: "Graduação", modality: "Tecnólogo", shift: "Manhã" },
-  { name: "Especialização em Inovação Educacional", level: "Pós-graduação", modality: "Especialização", shift: "Sábado" },
+  {
+    name: "Licenciatura em Matemática",
+    level: "Licenciaturas",
+    modality: "Presencial",
+    shift: "Noite",
+  },
+  {
+    name: "Licenciatura em Física",
+    level: "Licenciaturas",
+    modality: "Presencial",
+    shift: "Tarde",
+  },
+  {
+    name: "Engenharia de Computação",
+    level: "Graduação",
+    modality: "Bacharelado",
+    shift: "Integral",
+  },
+  {
+    name: "Tecnologia em Gestão Ambiental",
+    level: "Graduação",
+    modality: "Tecnólogo",
+    shift: "Manhã",
+  },
+  {
+    name: "Especialização em Inovação Educacional",
+    level: "Pós-graduação",
+    modality: "Especialização",
+    shift: "Sábado",
+  },
 ];
 
 const tabs = ["Todos", "Técnicos", "Graduação", "Licenciaturas", "Pós-graduação", "Extensão"];
@@ -92,7 +142,8 @@ const news = [
     title: "Aberto período de inscrição para cursos de extensão",
     date: "8 mar 2026",
     category: "Extensão",
-    summary: "Comunidade pode se inscrever em formações rápidas nas áreas de tecnologia e cidadania.",
+    summary:
+      "Comunidade pode se inscrever em formações rápidas nas áreas de tecnologia e cidadania.",
   },
   {
     title: "Estudantes participam de projeto de inovação acessível",
@@ -104,7 +155,8 @@ const news = [
     title: "Secretaria acadêmica divulga novos horários de atendimento",
     date: "20 fev 2026",
     category: "Comunicado",
-    summary: "Atendimento presencial e remoto passa a contar com horários ampliados durante a semana.",
+    summary:
+      "Atendimento presencial e remoto passa a contar com horários ampliados durante a semana.",
   },
 ];
 
@@ -151,13 +203,19 @@ function CampusPortalPage() {
   }, [activeTab]);
 
   return (
-    <main className={highContrast ? "bg-foreground text-background" : "bg-background text-foreground"}>
+    <main
+      className={highContrast ? "bg-foreground text-background" : "bg-background text-foreground"}
+    >
       <TopBar />
       <SiteHeader mobileOpen={mobileOpen} setMobileOpen={setMobileOpen} />
       <div className={largeText ? "text-lg" : "text-base"}>
         <Hero />
         <QuickAccess />
-        <Courses activeTab={activeTab} setActiveTab={setActiveTab} filteredCourses={filteredCourses} />
+        <Courses
+          activeTab={activeTab}
+          setActiveTab={setActiveTab}
+          filteredCourses={filteredCourses}
+        />
         <NewsSection />
         <SelectionsSection />
         <StudentArea />
@@ -184,12 +242,7 @@ function TopBar() {
       <div className="mx-auto flex max-w-7xl flex-col gap-3 px-4 py-2 text-sm sm:flex-row sm:items-center sm:justify-between lg:px-8">
         <span className="font-semibold">Portal Institucional Demo</span>
         <div className="flex flex-wrap items-center gap-3">
-          {[
-            "Acessibilidade",
-            "Alto Contraste",
-            "Mapa do Site",
-            "Contato",
-          ].map((item) => (
+          {["Acessibilidade", "Alto Contraste", "Mapa do Site", "Contato"].map((item) => (
             <a key={item} href="#contatos" className="hover:underline">
               {item}
             </a>
@@ -223,7 +276,9 @@ function SiteHeader({
             <Building2 className="h-7 w-7" aria-hidden="true" />
           </span>
           <span>
-            <strong className="block text-xl leading-tight text-primary">Campus Demo Fortaleza</strong>
+            <strong className="block text-xl leading-tight text-primary">
+              Campus Demo Fortaleza
+            </strong>
             <span className="block text-xs text-muted-foreground sm:text-sm">
               Instituto Federal Demo de Educação, Ciência e Tecnologia
             </span>
@@ -251,7 +306,10 @@ function SiteHeader({
         </button>
       </div>
       {mobileOpen && (
-        <nav className="border-t border-border bg-card px-4 py-3 lg:hidden" aria-label="Menu mobile">
+        <nav
+          className="border-t border-border bg-card px-4 py-3 lg:hidden"
+          aria-label="Menu mobile"
+        >
           <div className="mx-auto grid max-w-7xl gap-1">
             {navItems.map((item) => (
               <a
@@ -282,16 +340,21 @@ function Hero() {
             Campus Demo Fortaleza
           </h1>
           <p className="mt-5 max-w-2xl text-xl font-medium text-foreground">
-            Ensino público, gratuito e de qualidade em um ambiente de inovação, inclusão e formação cidadã.
+            Ensino público, gratuito e de qualidade em um ambiente de inovação, inclusão e formação
+            cidadã.
           </p>
           <p className="mt-4 max-w-2xl leading-7 text-muted-foreground">
-            O Campus Demo Fortaleza reúne cursos técnicos, graduações, pós-graduações, projetos de pesquisa,
-            extensão e serviços voltados à comunidade acadêmica.
+            O Campus Demo Fortaleza reúne cursos técnicos, graduações, pós-graduações, projetos de
+            pesquisa, extensão e serviços voltados à comunidade acadêmica.
           </p>
           <div className="mt-7 flex flex-wrap gap-3">
             <ActionButton href="#ensino">Conheça nossos cursos</ActionButton>
-            <ActionButton href="#servicos" variant="outline">Acesse os serviços</ActionButton>
-            <ActionButton href="#processos-seletivos" variant="outline">Processos seletivos</ActionButton>
+            <ActionButton href="#servicos" variant="outline">
+              Acesse os serviços
+            </ActionButton>
+            <ActionButton href="#processos-seletivos" variant="outline">
+              Processos seletivos
+            </ActionButton>
           </div>
         </div>
         <div className="overflow-hidden rounded-lg border border-border bg-card shadow-lg">
@@ -322,11 +385,19 @@ function QuickAccess() {
     <Section id="servicos" eyebrow="Acesso rápido" title="Serviços e informações principais">
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {quickLinks.map((item) => (
-          <article key={item.title} className="group rounded-lg border border-border bg-card p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
+          <article
+            key={item.title}
+            className="group rounded-lg border border-border bg-card p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-md"
+          >
             <item.icon className="h-8 w-8 text-primary" aria-hidden="true" />
             <h3 className="mt-4 text-lg font-bold">{item.title}</h3>
-            <p className="mt-2 min-h-12 text-sm leading-6 text-muted-foreground">{item.description}</p>
-            <a href="#" className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-primary">
+            <p className="mt-2 min-h-12 text-sm leading-6 text-muted-foreground">
+              {item.description}
+            </p>
+            <a
+              href="#"
+              className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-primary"
+            >
               Acessar <ChevronRight className="h-4 w-4 transition group-hover:translate-x-1" />
             </a>
           </article>
@@ -371,12 +442,23 @@ function Courses({
       </div>
       <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
         {filteredCourses.map((course) => (
-          <article key={course.name} className="rounded-lg border border-border bg-card p-5 shadow-sm transition hover:shadow-md">
-            <span className="rounded-md bg-secondary px-2.5 py-1 text-xs font-bold text-primary">{course.level}</span>
+          <article
+            key={course.name}
+            className="rounded-lg border border-border bg-card p-5 shadow-sm transition hover:shadow-md"
+          >
+            <span className="rounded-md bg-secondary px-2.5 py-1 text-xs font-bold text-primary">
+              {course.level}
+            </span>
             <h3 className="mt-4 min-h-14 text-lg font-bold">{course.name}</h3>
             <dl className="mt-3 space-y-2 text-sm text-muted-foreground">
-              <div className="flex justify-between gap-4"><dt>Modalidade</dt><dd className="font-medium text-foreground">{course.modality}</dd></div>
-              <div className="flex justify-between gap-4"><dt>Turno</dt><dd className="font-medium text-foreground">{course.shift}</dd></div>
+              <div className="flex justify-between gap-4">
+                <dt>Modalidade</dt>
+                <dd className="font-medium text-foreground">{course.modality}</dd>
+              </div>
+              <div className="flex justify-between gap-4">
+                <dt>Turno</dt>
+                <dd className="font-medium text-foreground">{course.shift}</dd>
+              </div>
             </dl>
             <button className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-md border border-primary px-4 py-2 text-sm font-semibold text-primary transition hover:bg-primary hover:text-primary-foreground">
               Ver detalhes <ArrowRight className="h-4 w-4" />
@@ -393,12 +475,20 @@ function NewsSection() {
     <Section id="noticias" eyebrow="Comunicação" title="Notícias">
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
         {news.map((item) => (
-          <article key={item.title} className="rounded-lg border border-border bg-card p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
-            <span className="text-xs font-bold uppercase tracking-wide text-accent">{item.category}</span>
+          <article
+            key={item.title}
+            className="rounded-lg border border-border bg-card p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-md"
+          >
+            <span className="text-xs font-bold uppercase tracking-wide text-accent">
+              {item.category}
+            </span>
             <time className="mt-2 block text-sm text-muted-foreground">{item.date}</time>
             <h3 className="mt-3 min-h-20 text-lg font-bold leading-snug">{item.title}</h3>
             <p className="mt-3 text-sm leading-6 text-muted-foreground">{item.summary}</p>
-            <a href="#" className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-primary">
+            <a
+              href="#"
+              className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-primary"
+            >
               Ler mais <ArrowRight className="h-4 w-4" />
             </a>
           </article>
@@ -413,11 +503,23 @@ function NewsSection() {
 
 function SelectionsSection() {
   return (
-    <Section id="processos-seletivos" eyebrow="Ingresso e editais" title="Processos seletivos" muted>
+    <Section
+      id="processos-seletivos"
+      eyebrow="Ingresso e editais"
+      title="Processos seletivos"
+      muted
+    >
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
         {selections.map((item) => (
-          <article key={item.title} className="rounded-lg border border-border bg-card p-5 shadow-sm">
-            <span className={`rounded-md px-2.5 py-1 text-xs font-bold ${statusClass(item.status)}`}>{item.status}</span>
+          <article
+            key={item.title}
+            className="rounded-lg border border-border bg-card p-5 shadow-sm"
+          >
+            <span
+              className={`rounded-md px-2.5 py-1 text-xs font-bold ${statusClass(item.status)}`}
+            >
+              {item.status}
+            </span>
             <h3 className="mt-4 min-h-14 text-lg font-bold">{item.title}</h3>
             <p className="mt-2 text-sm text-muted-foreground">Período: {item.period}</p>
             <button className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-md bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground transition hover:opacity-90">
@@ -435,7 +537,11 @@ function StudentArea() {
     <Section id="estudante" eyebrow="Vida acadêmica" title="Área do Estudante">
       <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
         {studentServices.map((service) => (
-          <a key={service} href="#" className="flex items-center justify-between rounded-lg border border-border bg-card p-4 font-semibold shadow-sm transition hover:border-primary hover:text-primary hover:shadow-md">
+          <a
+            key={service}
+            href="#"
+            className="flex items-center justify-between rounded-lg border border-border bg-card p-4 font-semibold shadow-sm transition hover:border-primary hover:text-primary hover:shadow-md"
+          >
             {service} <ChevronRight className="h-4 w-4" />
           </a>
         ))}
@@ -446,15 +552,35 @@ function StudentArea() {
 
 function ResearchExtensionInnovation() {
   const items = [
-    { title: "Pesquisa", icon: BookOpen, text: "Projetos científicos, grupos de estudo e iniciação tecnológica conectam estudantes a desafios reais." },
-    { title: "Extensão", icon: Users, text: "Ações comunitárias, eventos e formações aproximam o campus da sociedade e do território." },
-    { title: "Inovação", icon: Sparkles, text: "Laboratórios, incubação, tecnologia assistiva e parcerias estimulam soluções aplicadas." },
+    {
+      title: "Pesquisa",
+      icon: BookOpen,
+      text: "Projetos científicos, grupos de estudo e iniciação tecnológica conectam estudantes a desafios reais.",
+    },
+    {
+      title: "Extensão",
+      icon: Users,
+      text: "Ações comunitárias, eventos e formações aproximam o campus da sociedade e do território.",
+    },
+    {
+      title: "Inovação",
+      icon: Sparkles,
+      text: "Laboratórios, incubação, tecnologia assistiva e parcerias estimulam soluções aplicadas.",
+    },
   ];
   return (
-    <Section id="pesquisa-e-inovacao" eyebrow="Projetos institucionais" title="Pesquisa, Extensão e Inovação" muted>
+    <Section
+      id="pesquisa-e-inovacao"
+      eyebrow="Projetos institucionais"
+      title="Pesquisa, Extensão e Inovação"
+      muted
+    >
       <div className="grid gap-5 lg:grid-cols-3">
         {items.map((item) => (
-          <article key={item.title} className="rounded-lg border border-border bg-card p-6 shadow-sm">
+          <article
+            key={item.title}
+            className="rounded-lg border border-border bg-card p-6 shadow-sm"
+          >
             <item.icon className="h-9 w-9 text-primary" />
             <h3 className="mt-4 text-xl font-bold">{item.title}</h3>
             <p className="mt-3 leading-7 text-muted-foreground">{item.text}</p>
@@ -487,7 +613,9 @@ function AccessibilityLab() {
               <Accessibility className="h-16 w-16" />
             </div>
             <p className="mt-5 text-2xl font-bold text-primary">Avatar Libras</p>
-            <p className="mt-2 text-sm text-muted-foreground">Área reservada para avatar 3D demonstrativo</p>
+            <p className="mt-2 text-sm text-muted-foreground">
+              Área reservada para avatar 3D demonstrativo
+            </p>
           </div>
         </div>
         <div>
@@ -497,7 +625,10 @@ function AccessibilityLab() {
           </p>
           <div className="mt-6 grid gap-3 sm:grid-cols-2">
             {buttons.map((button) => (
-              <button key={button} className="rounded-md border border-border bg-background px-4 py-3 text-left font-semibold transition hover:border-primary hover:text-primary">
+              <button
+                key={button}
+                className="rounded-md border border-border bg-background px-4 py-3 text-left font-semibold transition hover:border-primary hover:text-primary"
+              >
                 {button}
               </button>
             ))}
@@ -515,17 +646,26 @@ function Contacts() {
         <div className="rounded-lg border border-border bg-card p-6 shadow-sm">
           <h3 className="text-xl font-bold">Campus Demo Fortaleza</h3>
           <div className="mt-5 space-y-4 text-muted-foreground">
-            <p className="flex gap-3"><MapPin className="mt-0.5 h-5 w-5 text-primary" /> Avenida Exemplo, 2081 - Benfica - Fortaleza/CE</p>
+            <p className="flex gap-3">
+              <MapPin className="mt-0.5 h-5 w-5 text-primary" /> Avenida Exemplo, 2081 - Benfica -
+              Fortaleza/CE
+            </p>
             <p>CEP: 60000-000</p>
-            <p className="flex gap-3"><Phone className="mt-0.5 h-5 w-5 text-primary" /> (85) 3000-0000</p>
-            <p className="flex gap-3"><Mail className="mt-0.5 h-5 w-5 text-primary" /> contato@campusdemo.edu.br</p>
+            <p className="flex gap-3">
+              <Phone className="mt-0.5 h-5 w-5 text-primary" /> (85) 3000-0000
+            </p>
+            <p className="flex gap-3">
+              <Mail className="mt-0.5 h-5 w-5 text-primary" /> contato@campusdemo.edu.br
+            </p>
           </div>
         </div>
         <div className="grid gap-3 sm:grid-cols-2">
           {sectors.map((sector) => (
             <div key={sector} className="rounded-lg border border-border bg-card p-4 shadow-sm">
               <h4 className="font-bold">{sector}</h4>
-              <p className="mt-1 text-sm text-muted-foreground">{emailFor(sector)}@campusdemo.edu.br</p>
+              <p className="mt-1 text-sm text-muted-foreground">
+                {emailFor(sector)}@campusdemo.edu.br
+              </p>
             </div>
           ))}
         </div>
@@ -538,20 +678,33 @@ function Footer() {
   const columns = [
     { title: "Institucional", links: ["O Campus", "Direção", "Contatos", "Transparência"] },
     { title: "Ensino", links: ["Cursos", "Calendário", "Estudante", "Biblioteca"] },
-    { title: "Acesso rápido", links: ["Notícias", "Processos seletivos", "Editais", "Acessibilidade"] },
+    {
+      title: "Acesso rápido",
+      links: ["Notícias", "Processos seletivos", "Editais", "Acessibilidade"],
+    },
   ];
   return (
     <footer className="bg-primary text-primary-foreground">
       <div className="mx-auto grid max-w-7xl gap-8 px-4 py-10 sm:grid-cols-2 lg:grid-cols-4 lg:px-8">
         <div>
           <h2 className="text-xl font-bold">Campus Demo Fortaleza</h2>
-          <p className="mt-3 text-sm leading-6 opacity-85">Avenida Exemplo, 2081 - Benfica - Fortaleza/CE<br />Telefone: (85) 3000-0000</p>
+          <p className="mt-3 text-sm leading-6 opacity-85">
+            Avenida Exemplo, 2081 - Benfica - Fortaleza/CE
+            <br />
+            Telefone: (85) 3000-0000
+          </p>
         </div>
         {columns.map((column) => (
           <div key={column.title}>
             <h3 className="font-bold">{column.title}</h3>
             <ul className="mt-3 space-y-2 text-sm opacity-90">
-              {column.links.map((link) => <li key={link}><a href="#inicio" className="hover:underline">{link}</a></li>)}
+              {column.links.map((link) => (
+                <li key={link}>
+                  <a href="#inicio" className="hover:underline">
+                    {link}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
         ))}
@@ -596,21 +749,41 @@ function FloatingAccessibility({
       >
         <Accessibility className="h-5 w-5" /> Acessibilidade
       </button>
-      {open && <button className="fixed inset-0 z-50 bg-foreground/25" aria-label="Fechar painel" onClick={() => setOpen(false)} />}
-      <aside className={`fixed right-0 top-0 z-50 h-full w-full max-w-md transform bg-card p-6 shadow-2xl transition-transform ${open ? "translate-x-0" : "translate-x-full"}`} aria-hidden={!open}>
+      {open && (
+        <button
+          className="fixed inset-0 z-50 bg-foreground/25"
+          aria-label="Fechar painel"
+          onClick={() => setOpen(false)}
+        />
+      )}
+      <aside
+        className={`fixed right-0 top-0 z-50 h-full w-full max-w-md transform bg-card p-6 shadow-2xl transition-transform ${open ? "translate-x-0" : "translate-x-full"}`}
+        aria-hidden={!open}
+      >
         <div className="flex items-start justify-between gap-4">
           <div>
             <h2 className="text-2xl font-bold text-primary">Assistente de Acessibilidade</h2>
             <p className="mt-2 text-muted-foreground">Escolha como deseja navegar pelo portal.</p>
           </div>
-          <button onClick={() => setOpen(false)} className="rounded-md border border-border p-2" aria-label="Fechar painel de acessibilidade">
+          <button
+            onClick={() => setOpen(false)}
+            className="rounded-md border border-border p-2"
+            aria-label="Fechar painel de acessibilidade"
+          >
             <X className="h-5 w-5" />
           </button>
         </div>
         <div className="mt-8 grid gap-3">
           {options.map((option) => (
-            <button key={option.label} onClick={option.action} className="flex items-center justify-between rounded-lg border border-border bg-background p-4 text-left font-semibold transition hover:border-primary hover:text-primary">
-              <span className="flex items-center gap-3"><option.icon className="h-5 w-5" />{option.label}</span>
+            <button
+              key={option.label}
+              onClick={option.action}
+              className="flex items-center justify-between rounded-lg border border-border bg-background p-4 text-left font-semibold transition hover:border-primary hover:text-primary"
+            >
+              <span className="flex items-center gap-3">
+                <option.icon className="h-5 w-5" />
+                {option.label}
+              </span>
               <ChevronRight className="h-4 w-4" />
             </button>
           ))}
@@ -636,7 +809,10 @@ function Section({
   muted?: boolean;
 }) {
   return (
-    <section id={id} className={muted ? "bg-secondary py-12 lg:py-16" : "bg-background py-12 lg:py-16"}>
+    <section
+      id={id}
+      className={muted ? "bg-secondary py-12 lg:py-16" : "bg-background py-12 lg:py-16"}
+    >
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
         <div className="mb-8 max-w-3xl">
           <p className="text-sm font-bold uppercase tracking-wide text-accent">{eyebrow}</p>
@@ -649,7 +825,15 @@ function Section({
   );
 }
 
-function ActionButton({ href, children, variant = "solid" }: { href: string; children: React.ReactNode; variant?: "solid" | "outline" }) {
+function ActionButton({
+  href,
+  children,
+  variant = "solid",
+}: {
+  href: string;
+  children: React.ReactNode;
+  variant?: "solid" | "outline";
+}) {
   return (
     <a
       href={href}
