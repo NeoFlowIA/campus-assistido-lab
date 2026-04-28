@@ -1,22 +1,19 @@
 # syntax=docker/dockerfile:1
 
-FROM node:22-alpine AS base
+FROM node:22-alpine AS build
 WORKDIR /app
 
-FROM base AS deps
 COPY package.json package-lock.json ./
-RUN npm ci
+RUN npm install
 
-FROM deps AS build
 COPY . .
 RUN npm run build
 
-FROM node:22-alpine AS runner
-WORKDIR /app
-ENV NODE_ENV=production
+FROM nginx:1.27-alpine AS runner
+WORKDIR /usr/share/nginx/html
 
-COPY --from=deps /app/node_modules ./node_modules
-COPY --from=build /app .
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+COPY --from=build /app/dist ./
 
-EXPOSE 4173
-CMD ["npm", "run", "preview", "--", "--host", "0.0.0.0", "--port", "4173"]
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
