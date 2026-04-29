@@ -62,6 +62,14 @@ function RootShell({ children }: { children: React.ReactNode }) {
       </head>
       <body>
         {children}
+        <script
+          src="/assets/widget-loader.js"
+          data-widget-url="https://infra-neotalkif.k3p3ex.easypanel.host/widget"
+          data-widget-origin="https://infra-neotalkif.k3p3ex.easypanel.host"
+          data-right="16px"
+          data-bottom="16px"
+          defer
+        />
         <Scripts />
       </body>
     </html>

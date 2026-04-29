@@ -188,10 +188,9 @@ const sectors = [
 
 function CampusPortalPage() {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [accessibilityOpen, setAccessibilityOpen] = useState(false);
   const [activeTab, setActiveTab] = useState("Todos");
-  const [highContrast, setHighContrast] = useState(false);
-  const [largeText, setLargeText] = useState(false);
+  const highContrast = false;
+  const largeText = false;
 
   const filteredCourses = useMemo(() => {
     if (activeTab === "Todos") return courses;
@@ -221,14 +220,6 @@ function CampusPortalPage() {
         <Contacts />
       </div>
       <Footer />
-      <FloatingAccessibility
-        open={accessibilityOpen}
-        setOpen={setAccessibilityOpen}
-        highContrast={highContrast}
-        setHighContrast={setHighContrast}
-        largeText={largeText}
-        setLargeText={setLargeText}
-      />
     </main>
   );
 }
@@ -719,83 +710,6 @@ function Footer() {
         © 2026 Campus Fortaleza. Portal institucional de referência para acessibilidade digital.
       </div>
     </footer>
-  );
-}
-
-function FloatingAccessibility({
-  open,
-  setOpen,
-  highContrast,
-  setHighContrast,
-  largeText,
-  setLargeText,
-}: {
-  open: boolean;
-  setOpen: (open: boolean) => void;
-  highContrast: boolean;
-  setHighContrast: (value: boolean) => void;
-  largeText: boolean;
-  setLargeText: (value: boolean) => void;
-}) {
-  const options = [
-    { label: "Libras", icon: Accessibility },
-    { label: "Voz", icon: Volume2 },
-    { label: "Texto simplificado", icon: FileText },
-    { label: "Alto contraste", icon: ShieldCheck, action: () => setHighContrast(!highContrast) },
-    { label: "Aumentar fonte", icon: Sparkles, action: () => setLargeText(!largeText) },
-    { label: "Mapa do campus", icon: MapPin },
-    { label: "Atendimento", icon: Headphones },
-  ];
-  return (
-    <>
-      <button
-        type="button"
-        onClick={() => setOpen(true)}
-        className="fixed bottom-5 right-5 z-50 inline-flex items-center gap-2 rounded-full bg-accent px-5 py-3 font-bold text-accent-foreground shadow-xl transition hover:scale-105"
-      >
-        <Accessibility className="h-5 w-5" /> Acessibilidade
-      </button>
-      {open && (
-        <button
-          className="fixed inset-0 z-50 bg-foreground/25"
-          aria-label="Fechar painel"
-          onClick={() => setOpen(false)}
-        />
-      )}
-      <aside
-        className={`fixed right-0 top-0 z-50 h-full w-full max-w-md transform bg-card p-6 shadow-2xl transition-transform ${open ? "translate-x-0" : "translate-x-full"}`}
-        aria-hidden={!open}
-      >
-        <div className="flex items-start justify-between gap-4">
-          <div>
-            <h2 className="text-2xl font-bold text-primary">Assistente de Acessibilidade</h2>
-            <p className="mt-2 text-muted-foreground">Escolha como deseja navegar pelo portal.</p>
-          </div>
-          <button
-            onClick={() => setOpen(false)}
-            className="rounded-md border border-border p-2"
-            aria-label="Fechar painel de acessibilidade"
-          >
-            <X className="h-5 w-5" />
-          </button>
-        </div>
-        <div className="mt-8 grid gap-3">
-          {options.map((option) => (
-            <button
-              key={option.label}
-              onClick={option.action}
-              className="flex items-center justify-between rounded-lg border border-border bg-background p-4 text-left font-semibold transition hover:border-primary hover:text-primary"
-            >
-              <span className="flex items-center gap-3">
-                <option.icon className="h-5 w-5" />
-                {option.label}
-              </span>
-              <ChevronRight className="h-4 w-4" />
-            </button>
-          ))}
-        </div>
-      </aside>
-    </>
   );
 }
 
