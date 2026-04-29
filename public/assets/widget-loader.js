@@ -19,15 +19,16 @@
   const button = document.createElement("button");
   button.type = "button";
   button.setAttribute("aria-label", "Abrir chat");
-  button.textContent = "💬";
-  button.style.width = "56px";
+  button.textContent = "Acessibilidade";
+  button.style.padding = "0 18px";
   button.style.height = "56px";
   button.style.borderRadius = "9999px";
   button.style.border = "none";
   button.style.cursor = "pointer";
   button.style.background = "#111827";
   button.style.color = "white";
-  button.style.fontSize = "24px";
+  button.style.fontSize = "16px";
+  button.style.fontWeight = "700";
   button.style.boxShadow = "0 8px 24px rgba(0,0,0,0.25)";
 
   const overlay = document.createElement("div");
